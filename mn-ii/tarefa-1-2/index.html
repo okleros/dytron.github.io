@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>    
-            .image-canvas { display: none; }
-            .image { float:left; border: 16px white solid; }
-            p { font-size: large;}
-        </style>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     </head>
     <body>
-        <p id="progress">Carregando imagem...</p>
+        <img id="logo" src="img/ufc.png" width="350" height="156.1">
+        <title>Filtros Convolucionais - MN-2</title>
+        <h1>Métodos Numéricos II - Tarefa 1.2</h1>
+        <h2>Escolha uma arquivo para aplicação dos filtros convolucionais.</h2>
+        <div id="interact">
+        <form action='#' onsubmit="return false;">
+            <input type='file' id='imgfile' />
+            <br><br>
+            <input type='button' id='btnLoad' value='Carregar' onclick='loadImage();' />
+        <p id="progress"></p>
+        </div>
+        <div class="img-container" id="imgs">
         <div class="image">
             <p>Imagem Original</p>
             <canvas id="canvas-0" class="image-canvas" width="200" height="200"></canvas>
@@ -36,7 +46,22 @@
         <div class="image">
             <p>Filtro de Sobel (X e Y) Threshold</p>
             <canvas id="canvas-6" class="image-canvas" width="200" height="200"></canvas>
+            <input type="range" min="0" max="360" value="180" class="slider" id="myRange1">
+            Threshold: <span id="value1"></span>
+            
         </div>
+        <div class="image">
+            <p>Filtro Convolucional de Laplace</p>
+            <canvas id="canvas-7" class="image-canvas" width="200" height="200"></canvas>
+        </div>
+        <div class="image">
+            <p>Filtro Convolucional de Laplace - Threshold</p>
+            <canvas id="canvas-8" class="image-canvas" width="200" height="200"></canvas>
+            <input type="range" min="1" max="20" value="10" class="slider" id="myRange2">
+            Threshold: <span id="value2"></span>
+        </div>
+    </div>
+        
     </body>
     
     <script src="js/classes/Math.js"></script>

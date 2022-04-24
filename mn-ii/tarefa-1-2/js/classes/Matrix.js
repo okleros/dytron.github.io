@@ -78,14 +78,6 @@ class Matrix extends Array {
         }
         return this;
     }
-    // Tenta obter o elemento (i, j, k) da matriz, e usa o Extend se estiver fora da matriz
-    getExtendedElement(i, j, k) {
-        let m = this;
-        i = Math.clamp(i, 0, m.length - 1);
-        j = Math.clamp(j, 0, m[0].length - 1);
-        k = Math.clamp(k, 0, m[0][0].length - 1);
-        return m[i][j][k];
-    }
     // Aplicar Filtro em uma matriz de imagem (retorna uma nova matriz)
     applyFilter(filter) {
         let image = this;
@@ -94,15 +86,17 @@ class Matrix extends Array {
         let filterSize = filter.width;
         let matrix = Matrix.createImage(width, height, 0, this.isBlackAndWhite);
         let m = Math.ceil((filterSize - 1) / 2);
-        let k, c, x, y, h, w;
+        let k, c, x, y, xf, yf, xi, yi;
         let channels = (!this.isBlackAndWhite) ? 4 : 1;
         for (k = 0; k < channels; ++k) { // R, G, B, A
             for (y = 0; y < height; ++y) {
                 for (x = 0; x < width; ++x) {
                     // Pixel (x, y), canal k (R, G, B ou A)
-                    for (h = y; h < y + filterSize; ++h) {
-                        for (w = x; w < x + filterSize; ++w) {
-                            matrix[k][y][x] += filter[h - y][w - x] * image.getExtendedElement(k, h - m, w - m);
+                    for (yf = 0; yf < filterSize; ++yf) {
+                        for (xf = 0; xf < filterSize; ++xf) {
+                            xi = Math.clamp(x - m + xf, 0, width - 1);
+                            yi = Math.clamp(y - m + yf, 0, height - 1);
+                            matrix[k][y][x] += filter[yf][xf] * image[k][yi][xi];
                         }
                     }
                     if (this.isBlackAndWhite) {
@@ -111,13 +105,6 @@ class Matrix extends Array {
                         }
                         matrix[3][y][x] = 255;
                     }
-                }
-            }
-        }
-        for (k = 0; k < 4; ++k) { // R, G, B, A
-            for (y = 0; y < height; ++y) {
-                for (x = 0; x < width; ++x) {
-                    matrix[k][y][x] = Math.round(matrix[k][y][x]);
                 }
             }
         }
@@ -233,5 +220,22 @@ class Matrix extends Array {
             }
         }
     }
-    // Laplacian Kernel...
+    // Laplacian Kernel
+    static getLaplaceKernel(mode) {
+        if (mode === "1") {                        
+            return Matrix.fromArray([
+                [0, 1, 0],
+                [1, -4, 1],
+                [0, 1, 0]
+            ]);
+        }
+        // Accurate mode
+        else {
+            return Matrix.fromArray([
+                [1/6, 4/6, 1/6],
+                [4/6, -20/6, 4/6],
+                [1/6, 4/6, 1/6]
+            ]);
+        }   
+    }
 }

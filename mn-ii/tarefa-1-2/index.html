@@ -10,58 +10,66 @@
         <img id="logo" src="img/ufc.png" width="350" height="156.1">
         <title>Filtros Convolucionais - MN-2</title>
         <h1>Métodos Numéricos II - Tarefa 1.2</h1>
-        <h2>Escolha uma arquivo para aplicação dos filtros convolucionais.</h2>
+        <h2>Escolha uma arquivo de imagem para aplicação dos filtros convolucionais.</h2>
         <div id="interact">
-        <form action='#' onsubmit="return false;">
-            <input type='file' id='imgfile' />
-            <br><br>
-            <input type='button' id='btnLoad' value='Carregar' onclick='loadImage();' />
-        <p id="progress"></p>
+            <form action='#' onsubmit="return false;">
+                <input type='file' id='imgfile' />
+                <br><br>
+                <input type='button' id='btnLoad' value='Carregar' onclick='loadImage();' />
+            </form>
+            <p id="progress"></p>
+        </div>
+        <div id="default-image">
+            <h2>Ou use uma imagem do nosso banco de dados.</h2>
+            <select name="image-list" id="image-combobox">
+                <option value="carro">Carro</option>
+                <option value="dog">Dog</option>
+            </select>
+            <button id="image-confirm">Carregar</button>
         </div>
         <div class="img-container" id="imgs">
-        <div class="image">
-            <p>Imagem Original</p>
-            <canvas id="canvas-0" class="image-canvas" width="200" height="200"></canvas>
+            <div class="image">
+                <p>Imagem Original</p>
+                <canvas id="canvas-0" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Preto e Branco</p>
+                <canvas id="canvas-1" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Filtro Gaussiano</p>
+                <canvas id="canvas-2" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Filtro de Sobel (X)</p>
+                <canvas id="canvas-3" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Filtro de Sobel (Y)</p>
+                <canvas id="canvas-4" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Filtro de Sobel (X e Y)</p>
+                <canvas id="canvas-5" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Filtro de Sobel (X e Y) - Threshold</p>
+                <canvas id="canvas-6" class="image-canvas" width="200" height="200"></canvas>
+                <input type="range" min="0" max="360" value="180" class="slider" id="myRange1">
+                Threshold: <span id="value1"></span>
+                
+            </div>
+            <div class="image">
+                <p>Filtro de Laplace</p>
+                <canvas id="canvas-7" class="image-canvas" width="200" height="200"></canvas>
+            </div>
+            <div class="image">
+                <p>Filtro de Laplace - Threshold</p>
+                <canvas id="canvas-8" class="image-canvas" width="200" height="200"></canvas>
+                <input type="range" min="1" max="20" value="10" class="slider" id="myRange2">
+                Threshold: <span id="value2"></span>
+            </div>
         </div>
-        <div class="image">
-            <p>Preto e Branco</p>
-            <canvas id="canvas-1" class="image-canvas" width="200" height="200"></canvas>
-        </div>
-        <div class="image">
-            <p>Filtro Gaussiano</p>
-            <canvas id="canvas-2" class="image-canvas" width="200" height="200"></canvas>
-        </div>
-        <div class="image">
-            <p>Filtro de Sobel (X)</p>
-            <canvas id="canvas-3" class="image-canvas" width="200" height="200"></canvas>
-        </div>
-        <div class="image">
-            <p>Filtro de Sobel (Y)</p>
-            <canvas id="canvas-4" class="image-canvas" width="200" height="200"></canvas>
-        </div>
-        <div class="image">
-            <p>Filtro de Sobel (X e Y)</p>
-            <canvas id="canvas-5" class="image-canvas" width="200" height="200"></canvas>
-        </div>
-        <div class="image">
-            <p>Filtro de Sobel (X e Y) Threshold</p>
-            <canvas id="canvas-6" class="image-canvas" width="200" height="200"></canvas>
-            <input type="range" min="0" max="360" value="180" class="slider" id="myRange1">
-            Threshold: <span id="value1"></span>
-            
-        </div>
-        <div class="image">
-            <p>Filtro Convolucional de Laplace</p>
-            <canvas id="canvas-7" class="image-canvas" width="200" height="200"></canvas>
-        </div>
-        <div class="image">
-            <p>Filtro Convolucional de Laplace - Threshold</p>
-            <canvas id="canvas-8" class="image-canvas" width="200" height="200"></canvas>
-            <input type="range" min="1" max="20" value="10" class="slider" id="myRange2">
-            Threshold: <span id="value2"></span>
-        </div>
-    </div>
-        
     </body>
     
     <script src="js/classes/Math.js"></script>

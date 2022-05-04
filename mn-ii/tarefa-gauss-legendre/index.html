@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Integração de Gauss-Legendre</title>
+    </head>
+    <body>
+        <h1>Integração de Gauss-Legendre</h1>
+        <form>
+            Início do intervalo: <input id="int-ini" type="text" value="0"><br>
+            Fim do intervalo: <input id="int-fim" type="text" value="1"><br>
+            Número de pontos:
+            <select id="int-pontos"></select>
+            <br>
+            Função: <input id="funcao" type="text" value="cos(x)"><br>
+            Tolerância: <input id="tolerancia" type="text" value="0.0001">
+        </form>
+        <p id="resultado"></p>
+        <button id="executar">Executar</button>
+        <script type="text/javascript" src="classes/GaussLegendre.js"></script>
+        <script type="text/javascript" src="classes/Math.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

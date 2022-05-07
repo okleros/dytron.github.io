@@ -42,8 +42,8 @@ function integralLegendre(a, b, pontos, eps)  {
 }
 executar.addEventListener('click', ()=>{
     let a, b, pontos, eps;
-    a = parseFloat(intIni.value);
-    b = parseFloat(intFim.value);
+    a = parseFloat(eval(Math.getExpressionString(intIni.value)));
+    b = parseFloat(eval(Math.getExpressionString(intFim.value)));
     pontos = parseInt(intPontos.value);
     fString = Math.getExpressionString(funcao.value);
     eps = parseFloat(tolerancia.value);

@@ -1,17 +1,21 @@
-Math.getExpressionString = function (func) {
+Math.getExpressionString = function(func) {
     return func
         .toLowerCase()
+        .replaceAll("º", "*(Math.PI/180)")
+        .replaceAll("°", "*(Math.PI/180)")
+        .replaceAll(",", ".")
+        .replaceAll("-", "-1*")
         .replaceAll("x", "(X)")
-        .replaceAll("cos", "Math.cos")
-        .replaceAll("sin", "Math.sin")
-        .replaceAll("sen", "Math.sin")
-        .replaceAll("sqrt", "Math.sqrt")
-        .replaceAll("pi", "(Math.PI)")
+        .replaceAll("cos", "1*Math.cos")
+        .replaceAll("sin", "1*Math.sin")
+        .replaceAll("sen", "1*Math.sin")
+        .replaceAll("sqrt", "1*Math.sqrt")
+        .replaceAll("pi", "1*(Math.PI)")
         .replaceAll("^", "**")
-        .replaceAll("e", "(Math.exp(1))");
+        .replaceAll("e", "1*(Math.exp(1))");
 }
 
-Math.getExpressionValue = function (expression, x) {
+Math.getExpressionValue = function(expression, x) {
     return eval(expression.replaceAll("X", x));
 }
 Math.GaussLegendre = function(f, x_s, ini, fim, n) {

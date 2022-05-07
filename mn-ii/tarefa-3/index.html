@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Fórmulas de Newton-Cotes</title>
+    </head>
+    <body>
+        <h1>Fórmulas de Newton-Cotes</h1>
+        <form>
+            Início do intervalo: <input id="int-ini" type="text" value="0"><br>
+            Fim do intervalo: <input id="int-fim" type="text" value="1"><br>
+            Grau:
+            <select id="int-grau"></select>
+            <br>
+            Tipo: 
+            <select id="int-tipo">
+                <option value="0">Fechada</option>
+                <option value="1">Aberta</option>
+            </select>
+            <br>
+            Função: <input id="funcao" type="text" value="cos(x)"><br>
+            Tolerância: <input id="tolerancia" type="text" value="0.000001">
+        </form>
+        <p id="resultado"></p>
+        <button id="executar">Executar</button>
+        <script type="text/javascript" src="lib/math.js"></script>
+        <script type="text/javascript" src="util/Formulas.js"></script>
+        <script type="text/javascript" src="util/Math.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

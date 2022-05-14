@@ -14,13 +14,9 @@ function mostrarResultado(integral) {
     resultado.innerHTML = "Resultado: " + integral.valor.toString() + '<br>N: ' + integral.N.toString();
 }
 // Função f de x
-var fString = "Math.cos(x)";
+var fString, fCompiled; 
 function f(x) {
-    return Math.getExpressionValue(fString, x);
-}
-// x em função de s
-function x_s(ini, fim, s) {
-    return (ini + fim + s*(fim - ini)) / 2;
+    return fCompiled.evaluate({x});
 }
 // Função que calcula a integral
 function integralLegendre(a, b, pontos, eps)  {
@@ -34,18 +30,19 @@ function integralLegendre(a, b, pontos, eps)  {
         for (let i = 0; i < N; ++i) {
             xi = a + i * dx;
             xf = xi + dx;
-            integralNova += Math.GaussLegendre(f, x_s, xi, xf, pontos)
+            integralNova += Math.GaussLegendre(f, xi, xf, pontos)
         }
         N *= 2;
     } while (Math.abs((integralNova - integralVelha) / integralNova) > eps);
-    return {valor: integralNova, N};
+    return {valor: integralNova, N: N-1};
 }
 executar.addEventListener('click', ()=>{
     let a, b, pontos, eps;
-    a = parseFloat(eval(Math.getExpressionString(intIni.value)));
-    b = parseFloat(eval(Math.getExpressionString(intFim.value)));
+    a = math.evaluate(Math.getExpressionString(intIni.value));
+    b = math.evaluate(Math.getExpressionString(intFim.value));
     pontos = parseInt(intPontos.value);
     fString = Math.getExpressionString(funcao.value);
+    fCompiled = math.compile(fString);
     eps = parseFloat(tolerancia.value);
     mostrarResultado(integralLegendre(a, b, pontos, eps));
 });

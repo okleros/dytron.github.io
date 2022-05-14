@@ -4,7 +4,8 @@ Math.getExpressionString = function(func) {
         .replaceAll("º", " deg")
         .replaceAll("°", " deg")
         .replaceAll(",", ".")
-        .replaceAll("sen", "sin");
+        .replaceAll("sen", "sin")
+        .replaceAll("pi", "3.1415926535");
 }
 Math.getExpressionValue = function(expression, x) {
     return eval(expression.replaceAll("X", x));

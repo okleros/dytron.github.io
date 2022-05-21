@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Quadraturas Especiais</title>
+    </head>
+    <body>
+        <h1>Quadraturas Especiais</h1>
+        <form>
+            Tipo: 
+            <select id="int-tipo">
+                <option value="0">Gauss-Hermit</option>
+                <option value="1">Gauss-Laguerre</option>
+                <option value="2">Gauss-Chebyshev</option>
+            </select>
+            <br>
+            <img id="img-formula" src="img/0.svg">
+            <br>
+            Pontos:
+            <select id="int-pontos"></select>
+            <br>
+            <br>
+            Função: <input id="funcao" type="text" value="cos(x)"><br>
+        </form>
+        <p id="resultado"></p>
+        <button id="executar">Executar</button>
+        <script type="text/javascript" src="lib/math.js"></script>
+        <script type="text/javascript" src="util/Formulas.js"></script>
+        <script type="text/javascript" src="util/Math.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

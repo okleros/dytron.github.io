@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head id="header">
+        <meta charset="UTF-8">
+        <title>Integração com singularidade em um dos limites - Resolução por GaussLegendre</title>
+    </head>
+    <body>
+        <h1>Integração com singularidade em um dos limites - Resolução por GaussLegendre</h1>
+        <form>
+            Início do intervalo: <input id="int-ini" type="text" value="0"><br>
+            Fim do intervalo: <input id="int-fim" type="text" value="1"><br>
+            Número de pontos:
+            <select id="int-pontos"></select>
+            <br>
+            <p>Escolha a função a integrar:</p>
+                <input type="radio" id="fun1" name="funct" value="1" checked>
+                <label for="fun1"><img src="img/fun1.png"></label><br>
+                <input type="radio" id="fun2" name="funct" value="2">
+                <label for="fun2"><img src="img/fun2.png"></label><br>
+            <p>Escolha o método a ser usado:</p>
+                <input type="radio" id="exp1" name="exp" value="1" checked>
+                <label for="exp">Exponencial Simples</label><br>
+                <input type="radio" id="exp2" name="exp" value="2">
+                <label for="exp2">Exponencial Dupla</label><br><br>
+            Tolerância externa: <input id="toleranciaExt" type="text" value="0.0001">
+            Tolerância interna: <input id="toleranciaInt" type="text" value="0.0001">
+            <br><br>
+            Valor inicial do corte: <input id="corteIni" type="text" value="2">
+        </form>
+        <p id="resultado"></p>
+        <button id="executar">Executar</button>
+        <script type="text/javascript" src="lib/math.js"></script>
+        <script type="text/javascript" src="classes/GaussLegendre.js"></script>
+        <script type="text/javascript" src="classes/Math.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

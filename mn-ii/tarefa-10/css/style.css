@@ -1,0 +1,9 @@
+textarea, input {
+    font-family: monospace;
+    display: block;
+    height: auto;
+    width: 100%;
+}
+.fieldset-auto-width {
+    display: inline-block;
+}

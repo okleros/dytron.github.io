@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Método da Potência Regular</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/dark-theme.css">
+    </head>
+    <body>
+        <h1>Método da Potência Regular</h1>
+        <p>Os valores da matriz e do vetor devem ser separados por vírgula.</p>
+        <form>
+            <fieldset class="fieldset-auto-width">
+                <legend>Entrada</legend>
+                Matriz:
+                <textarea id="matriz" style="width:250px;height:80px;"></textarea>
+                Vetor arbitrário:
+                <input id="vetor" type="text" value="1" style="width:250px;">
+                Tolerância:
+                <input id="tolerancia" type="text" value="0.000001" style="width:250px;">   
+            </fieldset>
+        </form>
+        <form>
+            <fieldset class="fieldset-auto-width">
+                <legend>Saída</legend>
+                Autovalor dominante:<br>
+                <input id="resultado" style="width:250px;">
+                Autovetor correspondente:
+                <textarea id="resultado2" style="width:250px;height:80px;"></textarea>
+            </fieldset>
+        </form>
+        <br>
+        <button id="executar">Executar</button>
+        <button id="ex1">Exemplo 1</button>
+        <button id="ex2">Exemplo 2</button>
+        <p id="passos"></p>
+        <script type="text/javascript" src="lib/math.js"></script>
+        <script type="text/javascript" src="util/Input.js"></script>
+        <script type="text/javascript" src="util/Metodo.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

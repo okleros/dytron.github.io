@@ -14,14 +14,12 @@ class Metodo {
      * Retorna o **Autovalor dominante** e o **Autovetor correspondente**
      * @param {Matrix} A matriz do problema
      * @param {Number} eps tolerância 
-     * @returns {Object} (P: Matrix, Lamb: Array)
+     * @returns {Object} (P: Matrix, Anew: Matrix, Matrices: Matrix[])
      */
     static jacobi(A, eps) {
-        let P, J, Anew, Aold;
+        let P, J, Anew, Aold, matrices = [];
         // Tamanho de A
         let n = A.rows;
-        // Vetor que armazena os autovalores de A
-        let Lamb = new Array(n);
         // Soma dos quadrados dos elementos
         let val = 100;
         // Matriz que contém os produtos das matrizes ortogonais J
@@ -31,15 +29,15 @@ class Metodo {
         // Varreduras de diagonalização
         while (val > eps) {
             ({Anew, J} = Metodo.varreduraDeJacobi(Aold));
+            matrices.push(Anew);
             Aold = Anew.copy();
             P = P.multiply(J);
             val = Anew.belowDiagonal().reduce((sum, x) => sum + x**2, 0);
-            console.log(val);
         }
-        Lamb = Anew.diagonal();
         return {
             P,
-            Lamb
+            Lamb : Anew.diagonal(),
+            matrices
         };
     }
     /**

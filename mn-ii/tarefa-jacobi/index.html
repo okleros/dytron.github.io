@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark-theme">
     <head>
         <meta charset="UTF-8">
         <title>Método de Jacobi</title>
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/dark-theme.css">
     </head>
     <body>
-        <h1>Método de Jacobi</h1>
+        <h1>Método de Jacobi<button id="mudar-tema">Mudar Tema</button></h1>
         <p>Os valores da matriz devem ser separados por vírgula.</p>
         <form>
             <fieldset class="fieldset-auto-width">
@@ -15,23 +15,28 @@
                 Matriz:
                 <textarea id="matriz" style="width:250px;height:80px;"></textarea>
                 Tolerância:
-                <input id="tolerancia" type="text" value="0.000001" style="width:250px;">   
+                <input id="tolerancia" type="text" value="10^-6" style="width:250px;">   
             </fieldset>
         </form>
         <form id="saida">
             <fieldset class="fieldset-auto-width">
                 <legend>Saída</legend>
-                Autovalores e Autovetores:<br>
-                <table id="resultado">
-                </table>
+                <p>Autovalores e Autovetores:</p>
+                <table id="resultado"></table>
+                <div id="saida-mais">
+                    <p>Matriz resultante de cada varredura de Jacobi:</p>
+                    <div id="resultado-mais"></div>
+                </div>
             </fieldset>
         </form>
         <br>
         <button id="executar">Executar</button>
         <button id="ex1">Exemplo 1</button>
         <button id="ex2">Exemplo 2</button>
+        <button id="mostrar-mais">Mostrar mais</button>
         <p id="passos"></p>
         <script type="text/javascript" src="lib/math.js"></script>
+        <script type="text/javascript" src="classes/Theme.js"></script>
         <script type="text/javascript" src="classes/Matrix.js"></script>
         <script type="text/javascript" src="classes/LU.js"></script>
         <script type="text/javascript" src="classes/Metodo.js"></script>

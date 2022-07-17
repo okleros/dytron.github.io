@@ -1,15 +1,20 @@
 // Elementos
 var matrizE = document.getElementById("matriz");
 var toleranciaE = document.getElementById("tolerancia");
-var executarE = document.getElementById("executar");
-var ex1 = document.getElementById("ex1");
-var ex2 = document.getElementById("ex2");
-var resultadoE = document.getElementById("resultado");
+var btnMudarTema = document.getElementById("mudar-tema");
+var btnExecutar = document.getElementById("executar");
+var btnEx1 = document.getElementById("ex1");
+var btnEx2 = document.getElementById("ex2");
+var btnMostrarMais = document.getElementById("mostrar-mais");
+var tblResultado = document.getElementById("resultado");
 var saida = document.getElementById("saida");
+var saidaMaisE = document.getElementById("saida-mais");
+var resultadoMaisE = document.getElementById("resultado-mais");
 var passosE = document.getElementById("passos");
-
-executarE.addEventListener('click', ()=>{
-    let A, eps, resultado, tr, td;
+// Botões
+btnMudarTema.addEventListener('click', Theme.toggle);
+btnExecutar.addEventListener('click', ()=>{
+    let A, eps, resultado;
     A = Input.stringToMatrix(matrizE.value);
     eps = math.evaluate(tolerancia.value);
     if (A == null) {
@@ -17,37 +22,26 @@ executarE.addEventListener('click', ()=>{
         return;
     }
     resultado = Metodo.jacobi(A, eps);
-    resultadoE.innerHTML = "";
-    let thead = resultadoE.createTHead();
-    tr = thead.insertRow(0);
-    for (let i = 0; i < resultado.Lamb.length; ++i){
-        td = tr.insertCell();
-        td.appendChild(document.createTextNode(`${resultado.Lamb[i]}`));
-    }
-    let tbody = resultadoE.createTBody();
-    for (let i = 0; i < resultado.P.length; ++i){
-        tr = tbody.insertRow();
-        for (let j = 0; j < resultado.P.length; ++j){
-            td = tr.insertCell();
-            td.appendChild(document.createTextNode(`${resultado.P[i][j]}`));
-        }     
-    }
-    /*resultadoE.value = resultado.eigenvalue;
-    resultado2E.value = resultado.eigenvector.join("\n");
-    resultado2E.rows = resultado.eigenvector.length;
-    passosE.innerHTML = "Número de passos: " + resultado.passos.toString();
-    AutoResize(resultado2E);*/
+    fillTable(tblResultado, resultado.Lamb, resultado.P);
+    resultadoMaisE.innerHTML = "";
+    resultado.matrices.forEach((matrix, i) => {
+        let table = document.createElement('table');
+        fillTable(table, ["Matriz " + (i + 1)], matrix);
+        resultadoMaisE.appendChild(table);
+    });
+    passosE.innerHTML = "";
     saida.setAttribute("style", "display: block;");
+    btnMostrarMais.setAttribute("style", "display: inline;");
 });
 // Exemplos de Entrada
-ex1.addEventListener('click', ()=>{
+btnEx1.addEventListener('click', ()=>{
     matrizE.value = 
 `5, 2, 1
 2, 3, 1
 1, 1, 2`;
     AutoResize(matrizE);
 });
-ex2.addEventListener('click', ()=>{
+btnEx2.addEventListener('click', ()=>{
     matrizE.value = 
 `40, 8, 4, 2, 1
 8, 30, 12, 6, 2
@@ -55,6 +49,11 @@ ex2.addEventListener('click', ()=>{
 2, 6, 1, 25, 4
 1, 2, 2, 4, 5`;
     AutoResize(matrizE);
+});
+btnMostrarMais.addEventListener('click', ()=>{
+    let isVisible = (saidaMaisE.style.display === "block");
+    saidaMaisE.setAttribute("style", isVisible ? "display: none;" : "display: block;");
+    btnMostrarMais.innerHTML = (isVisible) ? "Mostrar mais" : "Mostrar menos";
 });
 
 // Auto-resize
@@ -71,3 +70,24 @@ function AutoResize(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
 }
+function fillTable(tbl, header, cells) {
+    tbl.innerHTML = "";
+    if (header.length) {
+        let thead = tbl.createTHead(), tr, td;
+        tr = thead.insertRow(0);
+        for (let i = 0; i < header.length; ++i){
+            td = tr.insertCell();
+            if (header.length === 1) td.colSpan = cells.length.toString();
+            td.appendChild(document.createTextNode(`${header[i]}`));
+        }
+    }
+    let tbody = tbl.createTBody();
+    for (let i = 0; i < cells.length; ++i){
+        tr = tbody.insertRow();
+        for (let j = 0; j < cells.length; ++j){
+            td = tr.insertCell();
+            td.appendChild(document.createTextNode(`${cells[i][j]}`));
+        }     
+    }
+}
+window.onload = Theme.load;

@@ -3,13 +3,18 @@ textarea, input {
     display: block;
     height: auto;
     width: 100%;
+    font-size: 16px;
 }
 .fieldset-auto-width {
     display: inline-block;
 }
+table {
+    margin-bottom: 1%;
+}
 table, th, td {
     border: 0.5px solid;
     border-collapse: collapse;
+    font-size: 16px;
 }
 thead {
     text-align: left;
@@ -22,6 +27,14 @@ td {
     overflow: hidden;
     padding: 5px;
 }
-#saida {
+#saida, #saida-mais, #mostrar-mais {
     display: none;
+}
+button {
+    margin-bottom: 2px;
+    padding: 10px;
+}
+#mudar-tema {
+    float: right;
+    display: inline;
 }

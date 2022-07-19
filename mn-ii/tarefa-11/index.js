@@ -8,13 +8,14 @@ var ex2 = document.getElementById("ex2");
 var resultadoE = document.getElementById("resultado");
 var resultado2E = document.getElementById("resultado2");
 var passosE = document.getElementById("passos");
+var saidaE = document.getElementById("saida");
 
 executarE.addEventListener('click', ()=>{
     let A, v0, eps, resultado;
     A = Input.stringToMatrix(matrizE.value);
     v0 = Matrix.fromArray(Input.stringToArray(vetorE.value));
     eps = math.evaluate(tolerancia.value);
-    if (A == null || v0 == null) {
+    if (A?.length == 0 || v0?.length == 0) {
         passosE.innerHTML = "Entrada Inválida!";
         return;
     }
@@ -23,7 +24,7 @@ executarE.addEventListener('click', ()=>{
     resultado2E.value = resultado.eigenvector.join("\n");
     resultado2E.rows = resultado.eigenvector.length;
     passosE.innerHTML = "Número de passos: " + resultado.passos.toString();
-    document.querySelector("#saida").setAttribute("style", "display: inline-block;");
+    saidaE.setAttribute("style", "display: inline-block;");
     AutoResize(resultado2E);
 });
 // Exemplos de Entrada

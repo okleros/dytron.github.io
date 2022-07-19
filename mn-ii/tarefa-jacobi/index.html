@@ -3,28 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Método de Jacobi</title>
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/dark-theme.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Método de Jacobi<button id="mudar-tema">Mudar Tema</button></h1>
+        <h1>Método de Jacobi<button id="change-theme">Mudar Tema</button></h1>
         <p>Os valores da matriz devem ser separados por vírgula.</p>
         <form>
             <fieldset class="fieldset-auto-width">
                 <legend>Entrada</legend>
-                Matriz:
+                <label>Matriz:</label>
                 <textarea id="matriz" style="width:250px;height:80px;"></textarea>
-                Tolerância:
+                <label>Tolerância:</label>
                 <input id="tolerancia" type="text" value="10^-6" style="width:250px;">   
             </fieldset>
         </form>
         <form id="saida">
             <fieldset class="fieldset-auto-width">
                 <legend>Saída</legend>
-                <p>Autovalores e Autovetores:</p>
+                <label>Autovalores e Autovetores:</label>
                 <table id="resultado"></table>
                 <div id="saida-mais">
-                    <p>Matriz resultante de cada varredura de Jacobi:</p>
+                    <label>Matriz resultante de cada varredura de Jacobi:</label>
                     <div id="resultado-mais"></div>
                 </div>
             </fieldset>

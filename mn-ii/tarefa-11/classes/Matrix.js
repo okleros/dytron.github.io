@@ -28,7 +28,7 @@ class Matrix extends Array {
      * @param {Number} n
      * @returns {Matrix} matriz identidade
      */
-    static indentity(n) {
+    static identity(n) {
         let M = Matrix.create(n, n);
         for (let i = 0; i < n; ++i)
             M[i][i] = 1;

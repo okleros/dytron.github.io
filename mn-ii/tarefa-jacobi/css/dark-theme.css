@@ -33,3 +33,7 @@ button:hover, textarea:hover {
 button:active, textarea:active {
     border: 1px solid white !important;
 }
+#change-theme {
+    float: right;
+    display: inline;
+}

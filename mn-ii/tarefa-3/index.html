@@ -1,31 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html class="dark-theme">
     <head>
         <meta charset="UTF-8">
         <title>Fórmulas de Newton-Cotes</title>
+        <link rel="stylesheet" href="css/dark-theme.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Fórmulas de Newton-Cotes</h1>
+        <h1>Fórmulas de Newton-Cotes<button id="change-theme">Mudar Tema</button></h1>
         <form>
-            Início do intervalo: <input id="int-ini" type="text" value="0"><br>
-            Fim do intervalo: <input id="int-fim" type="text" value="1"><br>
-            Grau:
-            <select id="int-grau"></select>
-            <br>
-            Tipo: 
-            <select id="int-tipo">
-                <option value="0">Fechada</option>
-                <option value="1">Aberta</option>
-            </select>
-            <br>
-            Função: <input id="funcao" type="text" value="cos(x)"><br>
-            Tolerância: <input id="tolerancia" type="text" value="0.000001">
+            <fieldset>
+                <legend>Entrada</legend>
+                <label>Início do intervalo:</label>
+                <input id="int-ini" type="text" value="0">
+                <label>Fim do intervalo:</label>
+                <input id="int-fim" type="text" value="1">
+                <label>Grau:</label>
+                <select id="int-grau"></select>
+                <label>Tipo:</label>
+                <select id="int-tipo">
+                    <option value="0">Fechada</option>
+                    <option value="1">Aberta</option>
+                </select>
+                <label>Função:</label>
+                <input id="funcao" type="text" value="sen(2x) + 4x^2 + 3x">
+                <label></label>Tolerância:</label>
+                <input id="tolerancia" type="text" value="10^-5">
+            </fieldset>
         </form>
         <p id="resultado"></p>
         <button id="executar">Executar</button>
         <script type="text/javascript" src="lib/math.js"></script>
-        <script type="text/javascript" src="util/Formulas.js"></script>
-        <script type="text/javascript" src="util/Math.js"></script>
+        <script type="text/javascript" src="classes/Input.js"></script>
+        <script type="text/javascript" src="classes/Integral.js"></script>
+        <script type="text/javascript" src="metodos/NewtonCotes.js"></script>
+        <script type="text/javascript" src="classes/Theme.js"></script>
         <script src="index.js"></script>
     </body>
 </html>

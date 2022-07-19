@@ -1,30 +1,30 @@
-form {
-    display: block;
+form.dark-theme {
+    display: inline-block;
     margin-top: 0em;
 }
-html, body {
+html.dark-theme, body.dark-theme {
     border-color: #716b61;
     color: #e8e6e4;
 }
-html {
+html.dark-theme {
     color-scheme: dark !important;
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar.dark-theme {
     background-color: #212324;
     color: #a9a49c;
 }
-::-webkit-scrollbar-corner {
+::-webkit-scrollbar-corner.dark-theme {
     background-color: #181a1b;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb.dark-theme {
     background-color: #464a4c;
 }
-::selection {
+::selection.dark-theme {
     background-color: #004daa !important;
     color: #e8e6e3 !important;
 }
 button {
-    background-color: #252525 !important;
+    background-color: #F5F52500;
     border: 1px solid #cecece;
 }
 button:hover, textarea:hover {
@@ -32,4 +32,8 @@ button:hover, textarea:hover {
 }
 button:active, textarea:active {
     border: 1px solid white !important;
+}
+#change-theme {
+    float: right;
+    display: inline;
 }

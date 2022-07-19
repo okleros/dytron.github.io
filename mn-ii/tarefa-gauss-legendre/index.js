@@ -11,38 +11,32 @@ for (let i = 0; i < legendre.w.length; ++i) {
         intPontos.innerHTML += `<option value="${i}">${i}</option>`    
 }
 function mostrarResultado(integral) {
-    resultado.innerHTML = "Resultado: " + integral.valor.toString() + '<br>N: ' + integral.N.toString();
+    resultado.innerHTML = "Resultado: " + integral.valor.toString() + '<br>Número de Partições: ' + integral.N.toString();
 }
 // Função f de x
 var fString, fCompiled; 
 function f(x) {
     return fCompiled.evaluate({x});
 }
-// Função que calcula a integral
-function integralLegendre(a, b, pontos, eps)  {
-    let integralNova = Number.POSITIVE_INFINITY, integralVelha;
-    let N = 1, dx;
-    let xi, xf;
-    do {
-        integralVelha = integralNova;
-        dx = (b - a) / N;
-        integralNova = 0;
-        for (let i = 0; i < N; ++i) {
-            xi = a + i * dx;
-            xf = xi + dx;
-            integralNova += Math.GaussLegendre(f, xi, xf, pontos)
+
+executar.addEventListener('click', () => {
+    executar.innerHTML = "Executando...";
+    setTimeout(()=> {
+        try {
+            let a, b, pontos, eps;
+            a = math.evaluate(Input.getExpressionString(intIni.value));
+            b = math.evaluate(Input.getExpressionString(intFim.value));
+            pontos = parseInt(intPontos.value);
+            fString = Input.getExpressionString(funcao.value);
+            fCompiled = math.compile(fString);
+            eps = math.evaluate(tolerancia.value);
+            mostrarResultado(Integral.calculate(GaussLegendre, a, b, eps, pontos));
+        } catch (e) {
+            resultado.innerHTML = "Erro!";
+            console.log(e);
+        } finally {
+            executar.innerHTML = "Executar";
         }
-        N *= 2;
-    } while (Math.abs((integralNova - integralVelha) / integralNova) > eps);
-    return {valor: integralNova, N: N-1};
-}
-executar.addEventListener('click', ()=>{
-    let a, b, pontos, eps;
-    a = math.evaluate(Math.getExpressionString(intIni.value));
-    b = math.evaluate(Math.getExpressionString(intFim.value));
-    pontos = parseInt(intPontos.value);
-    fString = Math.getExpressionString(funcao.value);
-    fCompiled = math.compile(fString);
-    eps = parseFloat(tolerancia.value);
-    mostrarResultado(integralLegendre(a, b, pontos, eps));
+    }, 1);
 });
+Theme.init();

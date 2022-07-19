@@ -1,7 +1,6 @@
 // Elementos
 var matrizE = document.getElementById("matriz");
 var toleranciaE = document.getElementById("tolerancia");
-var btnMudarTema = document.getElementById("mudar-tema");
 var btnExecutar = document.getElementById("executar");
 var btnEx1 = document.getElementById("ex1");
 var btnEx2 = document.getElementById("ex2");
@@ -12,7 +11,6 @@ var saidaMaisE = document.getElementById("saida-mais");
 var resultadoMaisE = document.getElementById("resultado-mais");
 var passosE = document.getElementById("passos");
 // Botões
-btnMudarTema.addEventListener('click', Theme.toggle);
 btnExecutar.addEventListener('click', ()=>{
     let A, eps, resultado;
     A = Input.stringToMatrix(matrizE.value);
@@ -90,4 +88,4 @@ function fillTable(tbl, header, cells) {
         }     
     }
 }
-window.onload = Theme.load;
+Theme.init();

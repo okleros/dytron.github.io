@@ -23,6 +23,7 @@ executarE.addEventListener('click', ()=>{
     resultado2E.value = resultado.eigenvector.join("\n");
     resultado2E.rows = resultado.eigenvector.length;
     passosE.innerHTML = "Número de passos: " + resultado.passos.toString();
+    document.querySelector("#saida").setAttribute("style", "display: inline-block;");
     AutoResize(resultado2E);
 });
 // Exemplos de Entrada
@@ -59,3 +60,4 @@ function AutoResize(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
 }
+Theme.init();

@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html class="dark-theme">
     <head>
         <meta charset="UTF-8">
         <title>Integração de Gauss-Legendre</title>
+        <link rel="stylesheet" href="css/dark-theme.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Integração de Gauss-Legendre</h1>
+        <h1>Integração de Gauss-Legendre<button id="change-theme">Mudar Tema</button></h1>
         <form>
-            Início do intervalo: <input id="int-ini" type="text" value="0"><br>
-            Fim do intervalo: <input id="int-fim" type="text" value="1"><br>
-            Número de pontos:
-            <select id="int-pontos"></select>
-            <br>
-            Função: <input id="funcao" type="text" value="cos(x)"><br>
-            Tolerância: <input id="tolerancia" type="text" value="0.0001">
+            <fieldset>
+                <legend>Entrada</legend>
+                <label>Início do intervalo:</label><input id="int-ini" type="text" value="0"><br>
+                <label>Fim do intervalo:</label><input id="int-fim" type="text" value="1"><br>
+                <label>Número de pontos:</label>
+                <select id="int-pontos"></select>
+                <label>Função:</label><input id="funcao" type="text" value="sen(2x) + 4x^2 + 3x"><br>
+                <label>Tolerância:</label><input id="tolerancia" type="text" value="10^-6">
+            </fieldset>
         </form>
         <p id="resultado"></p>
         <button id="executar">Executar</button>
         <script type="text/javascript" src="lib/math.js"></script>
-        <script type="text/javascript" src="classes/GaussLegendre.js"></script>
+        <script type="text/javascript" src="classes/Theme.js"></script>
+        <script type="text/javascript" src="metodos/GaussLegendre.js"></script>
+        <script type="text/javascript" src="classes/Integral.js"></script>
+        <script type="text/javascript" src="classes/Input.js"></script>
         <script type="text/javascript" src="classes/Math.js"></script>
         <script src="index.js"></script>
     </body>

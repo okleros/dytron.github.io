@@ -7,3 +7,12 @@ textarea, input {
 .fieldset-auto-width {
     display: inline-block;
 }
+form {
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 10px;
+}
+button {
+    margin-bottom: 2px;
+    padding: 10px;
+}

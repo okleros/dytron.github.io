@@ -14,8 +14,8 @@ class LU {
      */
     static decomposition(M) {
         let n = M.length;
-        let L = Matrix.indentity(n);
-        let U = Matrix.indentity(n);
+        let L = Matrix.identity(n);
+        let U = Matrix.identity(n);
         let i, j, k, value;
         for (j = 0; j < n; ++j) {
             for (i = 0; i < j + 1; ++i) {

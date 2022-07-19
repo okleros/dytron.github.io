@@ -4,6 +4,7 @@ textarea, input {
     height: auto;
     width: 100%;
     font-size: 16px;
+    margin-bottom: 4%;
 }
 .fieldset-auto-width {
     display: inline-block;
@@ -34,7 +35,12 @@ button {
     margin-bottom: 2px;
     padding: 10px;
 }
-#mudar-tema {
-    float: right;
-    display: inline;
+legend {
+    font-size: 22px;
+    font-weight: bold;
+}
+label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 2%;
 }

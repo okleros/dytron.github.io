@@ -1,0 +1,39 @@
+form.dark-theme {
+    display: block;
+    margin-top: 0em;
+}
+html.dark-theme, body.dark-theme {
+    border-color: #716b61;
+    color: #e8e6e4;
+}
+html.dark-theme {
+    color-scheme: dark !important;
+}
+::-webkit-scrollbar.dark-theme {
+    background-color: #212324;
+    color: #a9a49c;
+}
+::-webkit-scrollbar-corner.dark-theme {
+    background-color: #181a1b;
+}
+::-webkit-scrollbar-thumb.dark-theme {
+    background-color: #464a4c;
+}
+::selection.dark-theme {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+button {
+    background-color: #F5F52500;
+    border: 1px solid #cecece;
+}
+button:hover, textarea:hover {
+    border: 1px solid #348fff !important;
+}
+button:active, textarea:active {
+    border: 1px solid white !important;
+}
+#change-theme {
+    float: right;
+    display: inline;
+}

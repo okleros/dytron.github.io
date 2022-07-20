@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="dark-theme">
+    <head>
+        <meta charset="UTF-8">
+        <title>Método de Householder</title>
+        <link rel="stylesheet" href="css/dark-theme.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>Método de Householder<button id="change-theme">Mudar Tema</button></h1>
+        <p>Os valores da matriz devem ser separados por vírgula.</p>
+        <form>
+            <fieldset class="fieldset-auto-width">
+                <legend>Entrada</legend>
+                Matriz:
+                <textarea id="matriz" style="width:250px;height:80px;"></textarea>
+            </fieldset>
+        </form>
+        <form id="saida">
+            <fieldset class="fieldset-auto-width">
+                <legend>Saída</legend>
+                Matriz Tridiagonal:<br>
+                <table id="matriz-tri"></table>
+                Matriz Acumulada:<br>
+                <table id="matriz-acu"></table>
+            </fieldset>
+        </form>
+        <br>
+        <button id="executar">Executar</button>
+        <button id="ex1">Exemplo 1</button>
+        <button id="ex2">Exemplo 2</button>
+        
+        <script type="text/javascript" src="lib/math.js"></script>
+        <script type="text/javascript" src="classes/Theme.js"></script>
+        <script type="text/javascript" src="classes/Matrix.js"></script>
+        <script type="text/javascript" src="classes/LU.js"></script>
+        <script type="text/javascript" src="classes/Metodo.js"></script>
+        <script type="text/javascript" src="classes/Input.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

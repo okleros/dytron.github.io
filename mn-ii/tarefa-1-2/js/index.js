@@ -1,10 +1,18 @@
+// Elementos
+var slider1 = document.getElementById("myRange1");
+var output1 = document.getElementById("value1");
+var slider2 = document.getElementById("myRange2");
+var output2 = document.getElementById("value2");
+var buttonConfirm = document.querySelector('#image-confirm');
+var selectedImage = document.querySelector('#image-combobox');
+// Canvas
 var canvas = [];
 for (let i = 0; i < 9; i++) {
     canvas[i] = document.querySelector(`#canvas-${i}`);
 }
 var ctx = canvas[0].getContext('2d');
 var usingDefaultImage = false, defaultImage="";
-
+// Carregar arquivo de imagem
 var input, file, fr;
 function loadImage() {
     var progress = document.querySelector('#progress');
@@ -30,6 +38,7 @@ function loadImage() {
         fr.readAsDataURL(file);
     }
 }
+/** Gerar Imagens */
 function createImage() {
     var t1 = new Date();
     var img = new Image();
@@ -48,7 +57,7 @@ function createImage() {
         let C = Matrix.createImage(img.width, img.height, 255, true).forEachElement(
             (k, y, x) => {
                 return Math.clamp(Math.sqrt((A[k][y][x]**2 + B[k][y][x]**2)), 0, 255);
-            }).toImage(canvas[5])
+            }).toImage(canvas[5]);
         // Threshold (Matriz final D)
         C.forEachElement(
             (k, y, x) => {
@@ -71,6 +80,7 @@ function createImage() {
             c.style["display"] = "inline";
         });
         document.getElementById("imgs").style.display = "block";
+        
     };
 
     if (!usingDefaultImage)
@@ -79,37 +89,21 @@ function createImage() {
         img.src = defaultImage;
     usingDefaultImage = false;
 };
-
-var slider1 = document.getElementById("myRange1");
-var output1 = document.getElementById("value1");
+// Sliders
 output1.innerHTML = slider1.value;
 slider1.oninput = function() {
     output1.innerHTML = this.value;
 }
-
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("value2");
 output2.innerHTML = slider2.value;
 slider2.oninput = function() {
     output2.innerHTML = this.value;
 }
-var buttonConfirm = document.querySelector('#image-confirm');
-var selectedImage = document.querySelector('#image-combobox');
+// Botão 
 buttonConfirm.onclick = function(){
     usingDefaultImage = true;
     defaultImage = 'img/' + selectedImage.value + '.jpg';
     console.log(selectedImage.value);
     createImage();
 };
-        
-    
 
-
-
-
-
-
-// Imagem carregada
-
-
-//img.src = 'img/carro.jpg';
+Theme.set("dark");

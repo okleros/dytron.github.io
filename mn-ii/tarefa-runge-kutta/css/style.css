@@ -59,3 +59,9 @@ label {
     display: block;
     margin-bottom: 2%;
 }
+a {
+    float: right;
+    right: 1%;
+    position: absolute;
+    bottom: 1%;
+}

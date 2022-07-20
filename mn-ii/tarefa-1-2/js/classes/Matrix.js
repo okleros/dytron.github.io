@@ -6,7 +6,7 @@ class Matrix extends Array {
         this.dimension = 2; // 2D ou 3D?
         this.isBlackAndWhite = false; // Use true em imagem sem cor para evitar repetição de cálculo
     }
-    // Criar matriz n x m, com valor inicial value
+    /** Criar matriz n x m, com valor inicial value */
     static create2D(n, m, value = 0) {
         let matrix = new Matrix(n);
         let i, j;
@@ -20,7 +20,7 @@ class Matrix extends Array {
         matrix.height = n;
         return matrix;
     }
-    // Criar matriz n x m x o, com valor inicial value
+    /** Criar matriz n x m x o, com valor inicial value */
     static create3D(n, m, o, value = 0) {
         let matrix = new Matrix(n);
         let i, j, k;
@@ -38,6 +38,7 @@ class Matrix extends Array {
         matrix.dimension = 3;
         return matrix;
     }
+    /** Converter array de array para matrix */
     static fromArray(array) {
         let matrix = new Matrix(array.length);
         let i;
@@ -48,17 +49,17 @@ class Matrix extends Array {
         matrix.height = array.length;
         return matrix;
     }
-    // Criar matriz que representa uma imagem
+    /** Criar matriz que representa uma imagem */
     static createImage(w, h, color = 255, blackAndWhite = false) {
         let m = Matrix.create3D(4, h, w, color);
         m.isBlackAndWhite = blackAndWhite;
         return m;
     }
-    // Imprimir matriz
+    /** Imprimir matriz */
     static print2D(matrix) {
         console.log(matrix);
     }
-    // Processa cada elemento da matriz
+    /** Processa cada elemento da matriz */
     forEachElement(process) {
         if (this.dimension === 3) {
             let channels = (!this.isBlackAndWhite) ? 4 : 1;
@@ -78,7 +79,7 @@ class Matrix extends Array {
         }
         return this;
     }
-    // Aplicar Filtro em uma matriz de imagem (retorna uma nova matriz)
+    /** Aplicar Filtro em uma matriz de imagem (retorna uma nova matriz) */
     applyFilter(filter) {
         let image = this;
         let width = image.width;
@@ -110,7 +111,7 @@ class Matrix extends Array {
         }
         return matrix;
     }
-    // Obter matriz de uma imagem (pelo canvas)
+    /** Obter matriz de uma imagem (pelo canvas) */
     static getMatrixFromImage(canvas) {
         let w, h, ctx;
         ctx = canvas.getContext('2d');
@@ -120,14 +121,14 @@ class Matrix extends Array {
         for (let x = 0; x < w; ++x) {
             for (let y = 0; y < h; ++y) {
                 let rgba = Pixel.get(ctx, x, y); 
-                for (let k = 0; k < 4; k++) {
+                for (let k = 0; k < 4; ++k) {
                     matrix[k][y][x] = rgba[k];
                 }
             }
         }
         return matrix;
     }
-    // Obter imagem em preto e branco (método da média)
+    /** Obter imagem em preto e branco (método da média) */
     toBlackAndWhite() {
         let width = this.width;
         let height = this.height;
@@ -148,7 +149,12 @@ class Matrix extends Array {
         }
         return matrix;
     }
-    // Desenha a matriz imagem no canvas
+    static sleep(ms) {
+        let currentTime = Date.now();
+        while(currentTime + ms > Date.now()) {};
+    }
+
+    /** Desenha a matriz imagem no canvas */
     toImage(canvas) {
         let x, y, k, w, h, ctx;
         ctx = canvas.getContext('2d');

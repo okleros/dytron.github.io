@@ -1,0 +1,59 @@
+form {
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 10px;
+}
+textarea, input {
+    font-family: monospace;
+    display: block;
+    height: auto;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 4%;
+}
+fieldset {
+    display: inline-block;
+    min-width: 370px;
+    padding-right: 5%;
+}
+.fieldset-auto-width {
+    display: inline-block;
+    min-width: 370px;
+    padding-right: 1%;
+    margin-left: 2%
+}
+table {
+    margin-bottom: 1%;
+}
+table, th, td {
+    border: 0.5px solid;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+thead {
+    text-align: left;
+    font-weight: bold;
+    border: 2px solid
+}
+td {
+    width: 200px;
+    font-family: monospace;
+    overflow: hidden;
+    padding: 5px;
+}
+#saida, #saida-mais, #mostrar-mais {
+    display: none;
+}
+button {
+    margin-bottom: 2px;
+    padding: 10px;
+}
+legend {
+    font-size: 22px;
+    font-weight: bold;
+}
+label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 2%;
+}

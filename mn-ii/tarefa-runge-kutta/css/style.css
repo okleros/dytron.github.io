@@ -1,26 +1,20 @@
-form {
-    display: inline-block;
-    vertical-align: top;
-    padding-bottom: 10px;
-}
 textarea, input {
     font-family: monospace;
     display: block;
     height: auto;
-    width: 100%;
+    width: 300px;
     font-size: 16px;
     margin-bottom: 4%;
 }
 fieldset {
     display: inline-block;
-    min-width: 370px;
-    padding-right: 5%;
+    min-width: 600px;
+    padding-right: 10px;
 }
 .fieldset-auto-width {
     display: inline-block;
-    min-width: 370px;
-    padding-right: 1%;
-    margin-left: 2%
+    min-width: 550px;
+    padding-right: 10px;
 }
 table {
     margin-bottom: 1%;
@@ -43,6 +37,14 @@ td {
 }
 #saida, #saida-mais, #mostrar-mais {
     display: none;
+}
+#entrada-1, #entrada-2 {
+    display: inline-block;
+    padding-right: 10px;
+}
+#entrada-2 {
+    vertical-align: top;
+    padding-bottom: 10px;
 }
 button {
     margin-bottom: 2px;

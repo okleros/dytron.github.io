@@ -30,8 +30,10 @@ executar.addEventListener('click', () => {
                 ["t", "máx"],
                 ["t", "total"],
                 ["v", "impacto"],
+                ["y", "final"],
+                ["v", "final"],
             ], resultado);
-            saidaE.setAttribute("style", "display: inline-block;");
+            saidaE.setAttribute("style", "display: block;");
         } catch (e) {
             resultado.innerHTML = "Erro!";
             console.log(e);

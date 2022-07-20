@@ -111,7 +111,9 @@ function RangeKutta(v0, y0, K, M, G, TF, DTs) {
             maxY,
             maxTime,
             oceanTime,
-            oceanSpeed
+            oceanSpeed,
+            state.y,
+            state.v
         ]);
         console.table(state);
         console.log("A altura maxima foi de " + maxY);

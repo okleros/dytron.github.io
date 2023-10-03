@@ -59,7 +59,6 @@ function setup() {
     setupOctreeView();
 
     scene = [];
-    frameRate(144);
 }
 
 function setupViewSettings() {

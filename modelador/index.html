@@ -16,29 +16,50 @@
   <body>
     <div id="panel"></div>
     <div id="canvas-container"></div>
-    <div id="side-panel">
-        <p class="side">View</p>
-        <div id="view-settings" class="side"></div>
-        <p class="side">Load Model</p>
-        <div id="load-model" class="side"></div>
-        <p class="side">Add Primitive</p>
-        <div id="add-primitive" class="side"></div>
-        <p class="side">Scene</p>
-        <div id="scene" class="side"></div>
-        <p class="side">Object</p>
-        <div id="object-visible" class="side"></div>
-        <p></p>
-        <div id="object" class="side"></div>
-        <p class="side">Octree</p>
-        <div id="octree" class="side">
-            <div>Depth</div>
-        </div>
-        <div id="octree-generate" class="side"></div>
+    <div class="flex-container">
+      <div id="side-panel">
+          <p class="side">View</p>
+          <div id="view-settings" class="side"></div>
+          <p class="side">Load Model</p>
+          <div id="load-model" class="side"></div>
+          <p class="side">Add Primitive</p>
+          <div id="add-primitive" class="side"></div>
+          <p class="side">Scene</p>
+          <div id="scene" class="side"></div>
+          <p class="side">Object</p>
+          <div id="object-visible" class="side"></div>
+          <p></p>
+          <div id="object" class="side"></div>
+          <p class="side">Octree</p>
+          <div id="octree" class="side">
+              <div>Depth</div>
+          </div>
+          <div id="octree-generate" class="side"></div>
+      </div>
+      <div class="side-csg">
+        <p>Constructive Solid Geometry</p>
+          <div id="csg">
+            <div>Tree<div>
+              <textarea id="csg-input" cols="50" rows="50"></textarea>
+          </div>
+      </div>
+      <div id="csg-generate"></div>
+    </div>
     </div>
     <script src="classes/Point.js"></script>
     <script src="classes/Matrix.js"></script>
     <script src="classes/Primitive.js"></script>
     <script src="classes/ModelObject.js"></script>
+    <script src="classes/CSGParser.js"></script>
+    <script src="classes/CSGTree.js"></script>
+    <script src="classes/CSGDifference.js"></script>
+    <script src="classes/CSGIntersection.js"></script>
+    <script src="classes/CSGRotation.js"></script>
+    <script src="classes/CSGTranslation.js"></script>
+    <script src="classes/CSGUnion.js"></script>
+    <script src="classes/CSGColor.js"></script>
+    <script src="classes/CSGSpecular.js"></script>
+    <script src="classes/CSGShine.js"></script>
     <script src="classes/Primitives/Box.js"></script>
     <script src="classes/Primitives/Sphere.js"></script>
     <script src="classes/Primitives/Cylinder.js"></script>

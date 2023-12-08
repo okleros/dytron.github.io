@@ -3,7 +3,7 @@
 const SCENE_W = 700;
 const SCENE_H = 700;
 const AXIS_SIZE = 5000;
-const MODELS = ["bunny"];
+const MODELS = ["bunny", "drone"];
 
 let cameraControlling = false;
 let mouseDrag = false;
